@@ -1,0 +1,28 @@
+# RPG Site - Cursor AI Rules
+
+PROJECT_TYPE=marketing_portfolio_rpg
+STACK=react_typescript_vite_tailwind_framer_motion
+AESTHETIC=pixel_art_retro_gaming
+
+## Color Palette
+USE_ONLY: pixel-dark, pixel-card, pixel-gold, pixel-red, pixel-cyan, pixel-text, pixel-muted, pixel-success
+
+## Code Standards
+- TypeScript: strict mode
+- Components: Named exports
+- Animations: Framer Motion only
+- No inline styles
+- Mobile-first responsive
+
+## Component Template
+```typescript
+import { motion } from 'framer-motion';
+
+export const Component: React.FC<Props> = () => (
+  <motion.div className="pixel-card">
+    {/* content */}
+  </motion.div>
+);
+```
+
+REFER_TO: .agent/rules/project.md for complete guidelines

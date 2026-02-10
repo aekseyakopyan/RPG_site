@@ -1,0 +1,40 @@
+
+> my-app@0.0.0 build
+> tsc -b && vite build
+
+src/components/CharacterSheet.tsx(1,10): error TS2300: Duplicate identifier 'motion'.
+src/components/CharacterSheet.tsx(1,18): error TS2300: Duplicate identifier 'AnimatePresence'.
+src/components/CharacterSheet.tsx(1,18): error TS6133: 'AnimatePresence' is declared but its value is never read.
+src/components/CharacterSheet.tsx(2,10): error TS2300: Duplicate identifier 'useGame'.
+src/components/CharacterSheet.tsx(4,5): error TS2300: Duplicate identifier 'Dialog'.
+src/components/CharacterSheet.tsx(5,5): error TS2300: Duplicate identifier 'DialogContent'.
+src/components/CharacterSheet.tsx(6,5): error TS2300: Duplicate identifier 'DialogHeader'.
+src/components/CharacterSheet.tsx(7,5): error TS2300: Duplicate identifier 'DialogTitle'.
+src/components/CharacterSheet.tsx(8,5): error TS2300: Duplicate identifier 'DialogTrigger'.
+src/components/CharacterSheet.tsx(10,10): error TS2300: Duplicate identifier 'RPGProgressBar'.
+src/components/CharacterSheet.tsx(11,10): error TS2300: Duplicate identifier 'Shield'.
+src/components/CharacterSheet.tsx(11,18): error TS2300: Duplicate identifier 'Sword'.
+src/components/CharacterSheet.tsx(11,25): error TS2300: Duplicate identifier 'Zap'.
+src/components/CharacterSheet.tsx(11,30): error TS2300: Duplicate identifier 'Star'.
+src/components/CharacterSheet.tsx(11,36): error TS2300: Duplicate identifier 'Briefcase'.
+src/components/CharacterSheet.tsx(11,47): error TS2300: Duplicate identifier 'Award'.
+src/components/CharacterSheet.tsx(12,1): error TS6133: 'PixelButton' is declared but its value is never read.
+src/components/CharacterSheet.tsx(12,10): error TS2300: Duplicate identifier 'PixelButton'.
+src/components/CharacterSheet.tsx(14,10): error TS2300: Duplicate identifier 'motion'.
+src/components/CharacterSheet.tsx(14,18): error TS2300: Duplicate identifier 'AnimatePresence'.
+src/components/CharacterSheet.tsx(15,10): error TS2300: Duplicate identifier 'useGame'.
+src/components/CharacterSheet.tsx(17,5): error TS2300: Duplicate identifier 'Dialog'.
+src/components/CharacterSheet.tsx(18,5): error TS2300: Duplicate identifier 'DialogContent'.
+src/components/CharacterSheet.tsx(19,5): error TS2300: Duplicate identifier 'DialogHeader'.
+src/components/CharacterSheet.tsx(20,5): error TS2300: Duplicate identifier 'DialogTitle'.
+src/components/CharacterSheet.tsx(21,5): error TS2300: Duplicate identifier 'DialogTrigger'.
+src/components/CharacterSheet.tsx(23,10): error TS2300: Duplicate identifier 'RPGProgressBar'.
+src/components/CharacterSheet.tsx(24,10): error TS2300: Duplicate identifier 'Shield'.
+src/components/CharacterSheet.tsx(24,18): error TS2300: Duplicate identifier 'Sword'.
+src/components/CharacterSheet.tsx(24,25): error TS2300: Duplicate identifier 'Zap'.
+src/components/CharacterSheet.tsx(24,30): error TS2300: Duplicate identifier 'Star'.
+src/components/CharacterSheet.tsx(24,36): error TS2300: Duplicate identifier 'Briefcase'.
+src/components/CharacterSheet.tsx(24,47): error TS2300: Duplicate identifier 'Award'.
+src/components/CharacterSheet.tsx(25,10): error TS2300: Duplicate identifier 'PixelButton'.
+src/components/CharacterSheet.tsx(45,11): error TS6133: 'nextLevelXp' is declared but its value is never read.
+src/components/SkillTree.tsx(26,11): error TS6133: 'xp' is declared but its value is never read.

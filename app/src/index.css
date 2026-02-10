@@ -1,0 +1,661 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 50% 13%;
+    --card: 0 0% 96%;
+    --card-foreground: 210 50% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 50% 13%;
+    --primary: 45 100% 67%;
+    --primary-foreground: 210 50% 13%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 210 50% 13%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 0 0% 46%;
+    --accent: 210 100% 13%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 348 85% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 45 100% 67%;
+    --radius: 0.75rem;
+
+    /* RPG Colors */
+    --rpg-gold: #FFD359;
+    --rpg-dark: #002244;
+    --rpg-red: #C60C30;
+    --rpg-gray: #757575;
+    --rpg-light-gray: #F5F5F5;
+    --rpg-str: #FF6B6B;
+    --rpg-dex: #4ECDC4;
+    --rpg-int: #45B7D1;
+    --rpg-luck: #FFD93D;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+  }
+
+  code,
+  pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .rpg-card {
+    @apply bg-[#F5F5F5] rounded-xl border border-[#E0E0E0] p-6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .rpg-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .rpg-button {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-base transition-all duration-200;
+    background: var(--rpg-gold);
+    color: var(--rpg-dark);
+  }
+
+  .rpg-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(255, 211, 89, 0.4);
+  }
+
+  .rpg-button-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-base transition-all duration-200 border-2;
+    border-color: var(--rpg-dark);
+    color: var(--rpg-dark);
+    background: transparent;
+  }
+
+  .rpg-button-outline:hover {
+    background: var(--rpg-dark);
+    color: white;
+  }
+
+  .stat-bar {
+    @apply h-2 rounded-full overflow-hidden bg-gray-200;
+  }
+
+  .stat-bar-fill {
+    @apply h-full rounded-full transition-all duration-1000 ease-out;
+  }
+
+  .pixel-text {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer utilities {
+  .text-rpg-gold {
+    color: var(--rpg-gold);
+  }
+
+  .text-rpg-dark {
+    color: var(--rpg-dark);
+  }
+
+  .text-rpg-red {
+    color: var(--rpg-red);
+  }
+
+  .bg-rpg-gold {
+    background-color: var(--rpg-gold);
+  }
+
+  .bg-rpg-dark {
+    background-color: var(--rpg-dark);
+  }
+
+  .bg-rpg-light {
+    background-color: var(--rpg-light-gray);
+  }
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 211, 89, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(255, 211, 89, 0.6);
+  }
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes xp-float {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(1.2);
+  }
+}
+
+@keyframes level-up {
+  0% {
+    transform: scale(0) rotate(-10deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+.animate-xp-float {
+  animation: xp-float 1.5s ease-out forwards;
+}
+
+.animate-level-up {
+  animation: level-up 0.6s ease-out forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rpg-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e6c450;
+}
+
+/* Quest Map Section */
+.quest-map-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+}
+
+.quest-map-wrapper {
+  margin: 60px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.quest-map-scroll {
+  display: flex;
+  gap: 20px;
+  min-width: min-content;
+  justify-content: center;
+  padding: 20px;
+  align-items: center;
+}
+
+.quest-level-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 24px;
+  background: white;
+  border: 3px solid #e0e4e8;
+  border-radius: 12px;
+  text-decoration: none;
+  min-width: 200px;
+  transition: all 0.3s ease;
+  position: relative;
+  color: #1a1a1a;
+}
+
+.quest-level-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f7c600, #ffb800);
+  border-radius: 12px 12px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.quest-level-card:hover {
+  border-color: #f7c600;
+  box-shadow: 0 12px 32px rgba(247, 198, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.quest-level-card:hover::before {
+  transform: scaleX(1);
+}
+
+.level-number {
+  font-size: 12px;
+  font-weight: 700;
+  color: #f7c600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.level-icon {
+  font-size: 48px;
+  display: block;
+}
+
+.level-info {
+  text-align: center;
+}
+
+.level-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.level-subtitle {
+  font-size: 14px;
+  color: #999;
+}
+
+.level-status {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Статусы для разных уровней */
+.quest-level-card:nth-child(1) .level-status,
+.quest-level-card:nth-child(2) .level-status {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.quest-level-card:nth-child(3) .level-status {
+  background: #fff3e0;
+  color: #e65100;
+  font-weight: 700;
+}
+
+.quest-level-card:nth-child(4) .level-status,
+.quest-level-card:nth-child(5) .level-status {
+  background: #f3e5f5;
+  color: #6a1b9a;
+}
+
+.level-arrow {
+  position: absolute;
+  right: -30px;
+  font-size: 28px;
+  color: #f7c600;
+  font-weight: 700;
+}
+
+.quest-level-card:last-child .level-arrow {
+  display: none;
+}
+
+.map-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.map-cta p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.map-button {
+  display: inline-block;
+  padding: 14px 40px;
+  background: linear-gradient(135deg, #f7c600, #ffb800);
+  color: #1a1a1a;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.map-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(247, 198, 0, 0.25);
+}
+
+@media (max-width: 1024px) {
+  .level-arrow {
+    right: -20px;
+  }
+
+  .quest-level-card {
+    min-width: 160px;
+    padding: 20px 16px;
+  }
+
+  .level-icon {
+    font-size: 36px;
+  }
+
+  .level-title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quest-map-section {
+    padding: 60px 16px;
+  }
+
+  .quest-level-card {
+    min-width: 140px;
+    padding: 16px 12px;
+  }
+
+  .level-icon {
+    font-size: 32px;
+  }
+
+  .level-title {
+    font-size: 14px;
+  }
+
+  .level-subtitle {
+    font-size: 12px;
+  }
+
+  .level-arrow {
+    display: none;
+  }
+}
+
+
+
+/* Reviews Section (Hero Tavern) - Final Polish */
+.reviews-carousel-container {
+  margin: 60px 0;
+  padding: 80px 0;
+  background: white;
+}
+
+.carousel-main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.carousel-viewport {
+  flex: 1;
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.review-card {
+  position: absolute;
+  width: 100%;
+  padding: 32px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+  border: 2px solid #e0e4e8;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.review-card.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.review-header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+
+.reviewer-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f7c600, #ffb800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  flex-shrink: 0;
+}
+
+.reviewer-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.reviewer-role {
+  font-size: 13px;
+  color: #999;
+}
+
+.reviewer-role span {
+  color: #f7c600;
+  font-weight: 600;
+}
+
+.review-quote {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+  margin: 24px 0;
+  font-style: italic;
+  border-left: 4px solid #f7c600;
+  padding-left: 16px;
+}
+
+.review-metrics {
+  display: flex;
+  gap: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e4e8;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric .label {
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.metric .value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #f7c600;
+}
+
+/* КНОПКИ НАВИГАЦИИ */
+.carousel-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f7c600, #ffb800);
+  border: none;
+  font-size: 24px;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(247, 198, 0, 0.3);
+}
+
+/* ИНДИКАТОРЫ */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e0e4e8;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #f7c600;
+  width: 32px;
+  border-radius: 4px;
+}
+
+.indicator:hover {
+  background: #f7c600;
+}
+
+@media (max-width: 768px) {
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .review-card {
+    padding: 20px;
+    height: auto;
+  }
+
+  .carousel-main {
+    gap: 12px;
+  }
+}
+
+
+/* Selection */
+::selection {
+  background: var(--rpg-gold);
+  color: var(--rpg-dark);
+}
